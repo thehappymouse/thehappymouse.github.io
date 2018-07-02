@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王大力">
 <meta property="og:description" content="新的项目，安装了主题，修改了主题对应的配置文件 _config.yml，如下： 123456789menu:  home: / || home  # about: /about/ || user  tags: /tags/ || tags  categories: /categories/ || th  archives: /archives/ || archive  #schedule: /sc">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-02T07:00:07.000Z">
+<meta property="og:updated_time" content="2018-07-02T08:11:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo 初探 增加标签和分类页面">
 <meta name="twitter:description" content="新的项目，安装了主题，修改了主题对应的配置文件 _config.yml，如下： 123456789menu:  home: / || home  # about: /about/ || user  tags: /tags/ || tags  categories: /categories/ || th  archives: /archives/ || archive  #schedule: /sc">
@@ -381,8 +381,8 @@
 </blockquote>
 <p>回到最开始的菜单配置，这是为你的博客添加了一个 “公益404”的菜单<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">menu</span><br><span class="line">...</span><br><span class="line">commonweal: /404/ || heartbeat</span><br></pre></td></tr></table></figure></p>
 <p>为你的 Hexo 博客添加 腾讯公益404的方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page 404</span><br></pre></td></tr></table></figure></p>
-<p>修改 source/404/index.md 内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 2018-07-02 14:29:31</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.qq.com/404/search_children.js&quot; charset=&quot;utf-8&quot; homePageUrl=&quot;http://uuheart.com&quot; homePageName=&quot;返回主页&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<h4 id="当页面真的找不到时"><a href="#当页面真的找不到时" class="headerlink" title="当页面真的找不到时"></a>当页面真的找不到时</h4><p>在 source 目录下创建 404.md 并填写相关内容。可以和 404/index.md内容一致，也可以自定义。<br>这部分内容支展示在一些页面，真的找不到时候。比如 <a href="http://uuheart.com/1234">http://uuheart.com/1234</a> 就会显示。<br>本地测试时，这个页面不能显示。上传至 github 后方可正常使用。</p>
+<p>修改 source/404/index.md 内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 2018-07-02 14:29:31</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;//www.qq.com/404/search_children.js&quot; charset=&quot;utf-8&quot; homePageUrl=&quot;//uuheart.com&quot; homePageName=&quot;返回主页&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="当页面真的找不到时"><a href="#当页面真的找不到时" class="headerlink" title="当页面真的找不到时"></a>当页面真的找不到时</h4><p>在 source 目录下创建 404.md 并填写相关内容。可以和 404/index.md内容一致，也可以自定义。<br>这部分内容支展示在一些页面，真的找不到时候。比如 <a href="http://uuheart.com/1234">http://uuheart.com/1234</a> 就会显示。<br>本地测试时，这个页面不能显示。在 github.io 上是可正常使用。</p>
 <blockquote>
 <p>关于 Hexo 使用技巧类的内容都在此页更新</p>
 </blockquote>
