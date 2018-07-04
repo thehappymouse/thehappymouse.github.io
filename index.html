@@ -292,7 +292,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/03/nginx/index/" itemprop="url">Nginx 预览文件</a></h1>
+                <a class="post-title-link" href="/2018/07/03/nginx/index/" itemprop="url">Nginx 下载文件不完整</a></h1>
         
 
         <div class="post-meta">
@@ -352,6 +352,10 @@
 <p>查看 nginx 的 error.log，发现大量的权限错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018/07/03 11:25:39 [crit] 32747#0: *7 open() &quot;/usr/local/var/run/nginx/fastcgi_temp/4/00/0000000004&quot; failed (13: Permission denied) while reading upstream, client: 10.10.20.104, server: , request: &quot;GET /api/h5/reports/17007/preview HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;10.10.20.104:8084&quot;</span><br><span class="line">2018/07/03 11:25:41 [crit] 32747#0: *9 open() &quot;/usr/local/var/run/nginx/fastcgi_temp/5/00/0000000005&quot; failed (13: Permission denied) while reading upstream, client: 10.10.20.104, server: , request: &quot;GET /api/h5/reports/17007/preview HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;10.10.20.104:8084&quot;</span><br></pre></td></tr></table></figure></p>
 <p>推测是文件比较大，需要缓冲，然后临时文件没有了写入权限产生的，改改式试吧。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /usr/local/var/run/nginx/fastcgi_temp</span><br></pre></td></tr></table></figure></p>
 <p>果然，解决问题。</p>
+<p>找了相关资料的一段描述：</p>
+<blockquote>
+<p>nginx会使用fastcgi_buffer_size指定的大小的缓冲区用于缓存fastcgi流的内容。当大小超出此大小时会继续用fastcgi_buffers指定的数量和大小申请缓冲区。如果依然超出此大小，会将多出的内容写入临时文件。就导致了该问题。</p>
+</blockquote>
 <p>问题解决了，面上的原因是权限错误，深层次，应该将 php-fpm 和 nginx 用户统一吧。</p>
 
           
