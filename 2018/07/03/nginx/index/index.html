@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="nginx," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场">
-<meta name="keywords" content="大力 hexo php go vue">
+<meta name="description" content="通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。wget http://10.10.20.104:8084/api/h5/reports/file1每一次得到的文件大小都不一样123456#第一次preview               [ &amp;lt;=&amp;gt;        ] 539.26K  --.-KB/s    in 0.002s2018-07">
+<meta name="keywords" content="nginx">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://uuheart.com/2018/06/28/hello-world/index.html">
+<meta property="og:title" content="Nginx 预览文件">
+<meta property="og:url" content="http://uuheart.com/2018/07/03/nginx/index/index.html">
 <meta property="og:site_name" content="王大力">
-<meta property="og:description" content="文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场">
+<meta property="og:description" content="通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。wget http://10.10.20.104:8084/api/h5/reports/file1每一次得到的文件大小都不一样123456#第一次preview               [ &amp;lt;=&amp;gt;        ] 539.26K  --.-KB/s    in 0.002s2018-07">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T09:10:49.000Z">
+<meta property="og:updated_time" content="2018-07-03T03:50:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场">
+<meta name="twitter:title" content="Nginx 预览文件">
+<meta name="twitter:description" content="通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。wget http://10.10.20.104:8084/api/h5/reports/file1每一次得到的文件大小都不一样123456#第一次preview               [ &amp;lt;=&amp;gt;        ] 539.26K  --.-KB/s    in 0.002s2018-07">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://uuheart.com/2018/06/28/hello-world/"/>
+  <link rel="canonical" href="http://uuheart.com/2018/07/03/nginx/index/"/>
 
 
 
 
 
-  <title>Hello World | 王大力</title>
+  <title>Nginx 预览文件 | 王大力</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/06/28/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/07/03/nginx/index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Nginx 预览文件</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-28T16:14:21+08:00">
-                2018-06-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T11:07:17+08:00">
+                2018-07-03
               </time>
             
 
@@ -340,7 +340,15 @@
       
 
       
-        <p>文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场</p>
+        <p>通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。<br>wget <a href="http://10.10.20.104:8084/api/h5/reports/file1" target="_blank" rel="noopener">http://10.10.20.104:8084/api/h5/reports/file1</a><br>每一次得到的文件大小都不一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#第一次</span><br><span class="line">preview               [ &lt;=&gt;        ] 539.26K  --.-KB/s    in 0.002s</span><br><span class="line">2018-07-03 11:12:45 (249 MB/s) - ‘preview’ saved [552206]</span><br><span class="line">#再来一次</span><br><span class="line">preview.1             [ &lt;=&gt;        ] 791.23K  --.-KB/s    in 0.003s</span><br><span class="line">2018-07-03 11:12:46 (281 MB/s) - ‘preview.1’ saved [810222]</span><br></pre></td></tr></table></figure></p>
+<p>发现每次开始下载，然后就结束了，中断了。第一感觉应该是文件长度没有返回，客户端不知道下多少。所以 php 代码补上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Content-length:5498687&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>再次执行 wget 下载，发现了有趣的现象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Connecting to 10.10.20.104:8084... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 5498687 (5.2M) [application/pdf]</span><br><span class="line">Saving to: ‘preview.7’</span><br><span class="line"></span><br><span class="line">preview.7                        10%[====&gt;                                                   ] 539.39K  --.-KB/s    in 0.002s</span><br><span class="line"></span><br><span class="line">2018-07-03 11:28:21 (303 MB/s) - Connection closed at byte 552340. Retrying.</span><br><span class="line"></span><br><span class="line">--2018-07-03 11:28:22--  (try: 2)  http://10.10.20.104:8084/api/h5/reports/17007/preview</span><br><span class="line">Connecting to 10.10.20.104:8084... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 5498687 (5.2M) [application/pdf]</span><br><span class="line">Saving to: ‘preview.7’</span><br><span class="line"></span><br><span class="line">preview.7                        32%[=================&gt;                                      ]   1.73M  --.-KB/s    in 0.004s</span><br><span class="line"></span><br><span class="line">2018-07-03 11:28:23 (415 MB/s) - Connection closed at byte 1809684. Retrying.</span><br><span class="line"></span><br><span class="line">--2018-07-03 11:28:25--  (try: 3)  http://10.10.20.104:8084/api/h5/reports/17007/preview</span><br><span class="line">Connecting to 10.10.20.104:8084... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 5498687 (5.2M) [application/pdf]</span><br><span class="line">Saving to: ‘preview.7’</span><br></pre></td></tr></table></figure></p>
+<p>看到 wget 在循环断点下载。文件长度确实生效。但并没有达到预期。</p>
+<p>此时使用 apache 做服务器，下载文件一气呵成，估计还是 nginx 的问题。</p>
+<p>查看 nginx 的 error.log，发现大量的权限错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018/07/03 11:25:39 [crit] 32747#0: *7 open() &quot;/usr/local/var/run/nginx/fastcgi_temp/4/00/0000000004&quot; failed (13: Permission denied) while reading upstream, client: 10.10.20.104, server: , request: &quot;GET /api/h5/reports/17007/preview HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;10.10.20.104:8084&quot;</span><br><span class="line">2018/07/03 11:25:41 [crit] 32747#0: *9 open() &quot;/usr/local/var/run/nginx/fastcgi_temp/5/00/0000000005&quot; failed (13: Permission denied) while reading upstream, client: 10.10.20.104, server: , request: &quot;GET /api/h5/reports/17007/preview HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;10.10.20.104:8084&quot;</span><br></pre></td></tr></table></figure></p>
+<p>推测是文件比较大，需要缓冲，然后临时文件没有了写入权限产生的，改改式试吧。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /usr/local/var/run/nginx/fastcgi_temp</span><br></pre></td></tr></table></figure></p>
+<p>果然，解决问题。</p>
+<p>问题解决了，面上的原因是权限错误，深层次，应该将 php-fpm 和 nginx 用户统一吧。</p>
 
       
     </div>
@@ -356,6 +364,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag"># nginx</a>
+          
+        </div>
+      
 
       
       
@@ -365,15 +379,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/02/hexo-添加https/" rel="next" title="Hexo 添加 https 访问">
+                <i class="fa fa-chevron-left"></i> Hexo 添加 https 访问
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/开始/" rel="prev" title="开始我的个人博客搭建">
-                开始我的个人博客搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
