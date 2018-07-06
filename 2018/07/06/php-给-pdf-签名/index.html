@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="title: php 给 pdf 签名date: 2018-07-06 21:03:11tags: php  引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。 需求：使用证书给PDF签名，防止篡改 签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个">
+<meta name="keywords" content="大力 hexo php go vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="王大力">
+<meta property="og:url" content="http://uuheart.com/2018/07/06/php-给-pdf-签名/index.html">
+<meta property="og:site_name" content="王大力">
+<meta property="og:description" content="title: php 给 pdf 签名date: 2018-07-06 21:03:11tags: php  引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。 需求：使用证书给PDF签名，防止篡改 签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-06T14:13:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="王大力">
+<meta name="twitter:description" content="title: php 给 pdf 签名date: 2018-07-06 21:03:11tags: php  引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。 需求：使用证书给PDF签名，防止篡改 签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://uuheart.com/2018/07/06/php-给-pdf-签名/"/>
+
+
+
+
+
+  <title> | 王大力</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王大力</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">用心去做好每一件事</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/07/06/php-给-pdf-签名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王大力">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-06T21:03:11+08:00">
+                2018-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: php 给 pdf 签名<br>date: 2018-07-06 21:03:11<br>tags: php </p>
+<p>引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。</p>
+<p>需求：使用证书给PDF签名，防止篡改</p>
+<p>签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人修改了内容，则大力的签名即消息。因为别人是没有我的签名的，签名不能被模仿。</p>
+<p>其中主要的技术环节，主要是有大型的机构纷发、核验签名证书。PDF 阅读软件对签名的检查和提示。最重要的是我必须保护好自己的签名，不能让坏人得到。否则，坏人就可以冒充我发布内容，而让我背锅…</p>
+<p>案例：</p>
+<p>貌似离我最近的案例就是车险的电子保单。有一个公章。在 Macos 下使用预览程序打开 PDF 文件，看不到公章。而使用 Adobe Reader 可以看到公章。点击公章，能看到签名信息，以及最重要的，文档是否被修改过。</p>
+<p>我们的目标大概也是这样。但到目前为止（技术探索阶段）没有搞明白公章是怎么消失的。所以我们的 PDF 文件，暂时目标就是依靠阅读器，去检查是否被修改过，能显示签名信息即可。</p>
+<p>实现的方法论：</p>
+<p>公司生成 PDF 文件的工具，是购买的 prince 软件，授权费适中，即来之，则安之。首先想到就是该程序在生成是，把签名加上，万事大吉。当然，这款软件也是牛B，好几年前有人给留言类似的功能，他们就是不加。这里说一个他们的方向：H52Pdf。一个方向上做好了，也是够吃了。</p>
+<p>不过在去搞代码前，我花了大半天的时间，在安装各类PDF阅读器，编辑器。通过编辑工具加签名，偷偷编辑，查看效果。这个过程也是相当消耗精力啊。</p>
+<p>PDF Expert 记录一下，这个工具还可以。</p>
+<p>领导给的方法，使用 TCPDF 这个库，有签名案例 ，这个 Demo 我也是佩服，一语中的，直击要害，差点我就信了。看到网站的第一感觉，这也太老土了；再看，确实老土，而且类库给维护也比较旧的。（事后明白，稳定了嘛）。</p>
+<p>等把类库下载下来，开始测试的时候，傻了。这个类库，集生成与签名于一体。对已有文件，是拒绝的。然后就开始搜吧，网上大多 php pdf 都是这个类库的。</p>
+<p>好链接要留名 PHP利用FPDI 制作PDF 档案 （php并pdf, php签名pdf）</p>
+<p>在它的文章中找到了关键线索，我也整理一个表格</p>
+<p>  prince    将html+css生成PDF文档的程序         <a href="https://www.princexml.com/" target="_blank" rel="noopener">https://www.princexml.com/</a><br>  tcpdf     php 生成 pdf文档的类库，支持加签名       <a href="https://tcpdf.org/docs/" target="_blank" rel="noopener">https://tcpdf.org/docs/</a><br>  FPDI      可以用来载入一个已存在的PDF 档案，给tcpdf使用 <a href="https://www.setasign.com/products/fpdi/about/" target="_blank" rel="noopener">https://www.setasign.com/products/fpdi/about/</a></p>
+<p>最后说一下FPDI的母公司，<a href="https://www.setasign.com/，有多款产品，其中" target="_blank" rel="noopener">https://www.setasign.com/，有多款产品，其中</a> FPDI是免费的…</p>
+<p>万事俱备，开始实践喽</p>
+<p>实践喽</p>
+<ol>
+<li><p>安装类库</p>
+<p> compser require tecnickcom/tcpdf<br> compser require setasign/fpdi<br> compser require setasign/fpdi-tcpdf</p>
+</li>
+<li><p>tcpdf example 001 主要是了为找找感觉，忘记代码从哪里弄过来的了</p>
+<pre><code>&lt;?php
+require_once(&quot;vendor/autoload.php&quot;);
+</code></pre></li>
+</ol>
+<pre><code>// create new PDF document
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, &apos;UTF-8&apos;, false);
+
+// set document information
+$pdf-&gt;SetCreator(PDF_CREATOR); //设置创建者
+$pdf-&gt;SetAuthor(&apos;Nicola Asuni&apos;); //设置作者
+$pdf-&gt;SetTitle(&apos;TCPDF Example 001&apos;); //设置文件的title
+$pdf-&gt;SetSubject(&apos;TCPDF Tutorial&apos;); //设置主题
+$pdf-&gt;SetKeywords(&apos;TCPDF, PDF, example, test, guide&apos;); //设置关键词
+// set default header data
+$pdf-&gt;SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . &apos; 001&apos;, PDF_HEADER_STRING, array(0, 64, 255), array(0, 64, 128)); //设置头部,比如header_logo，header_title，header_string及其属性
+$pdf-&gt;setFooterData(array(0, 64, 0), array(0, 64, 128));
+
+// set header and footer fonts
+$pdf-&gt;setHeaderFont(Array(PDF_FONT_NAME_MAIN, &apos;&apos;, PDF_FONT_SIZE_MAIN)); //设置页头字体
+$pdf-&gt;setFooterFont(Array(PDF_FONT_NAME_DATA, &apos;&apos;, PDF_FONT_SIZE_DATA)); //设置页尾字体
+// set default monospaced font
+$pdf-&gt;SetDefaultMonospacedFont(PDF_FONT_MONOSPACED); //设置默认等宽字体
+// set margins
+$pdf-&gt;SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //设置margins 参考css的margins
+$pdf-&gt;SetHeaderMargin(PDF_MARGIN_HEADER); //设置页头margins
+$pdf-&gt;SetFooterMargin(PDF_MARGIN_FOOTER); //设置页脚margins
+// set auto page breaks
+$pdf-&gt;SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM); //设置自动分页
+// set image scale factor
+$pdf-&gt;setImageScale(PDF_IMAGE_SCALE_RATIO); //设置调整图像自适应比例
+// set some language-dependent strings (optional) 设置一些与语言相关的字符串
+if (@file_exists(dirname(__FILE__) . &apos;/lang/eng.php&apos;)) {
+    require_once(dirname(__FILE__) . &apos;/lang/eng.php&apos;);
+    $pdf-&gt;setLanguageArray($l);
+}
+
+// ---------------------------------------------------------
+// set default font subsetting mode
+$pdf-&gt;setFontSubsetting(true); //设置默认字体子集模式
+// Set font
+// dejavusans is a UTF-8 Unicode font, if you only need to
+// print standard ASCII chars, you can use core fonts like
+// helvetica or times to reduce file size.
+$pdf-&gt;SetFont(&apos;dejavusans&apos;, &apos;&apos;, 14, &apos;&apos;, true); //设置字体
+// Add a page
+// This method has several options, check the source code documentation for more information.
+$pdf-&gt;AddPage(); //增加一个页面
+// set text shadow effect  设置文字阴影效果
+$pdf-&gt;setTextShadow(array(&apos;enabled&apos; =&gt; true, &apos;depth_w&apos; =&gt; 0.2, &apos;depth_h&apos; =&gt; 0.2, &apos;color&apos; =&gt; array(196, 196, 196), &apos;opacity&apos; =&gt; 1, &apos;blend_mode&apos; =&gt; &apos;Normal&apos;));
+
+// Set some content to print
+$html = &lt;&lt;&lt;EOD
+&lt;h1&gt;Welcome to Genecast &lt;a href=&quot;http://www.tcpdf.org&quot; style=&quot;text-decoration:none;background-color:#CC0000;color:black;&quot;&gt;&amp;nbsp;&lt;span style=&quot;color:black;&quot;&gt;TC&lt;/span&gt;&lt;span style=&quot;color:white;&quot;&gt;PDF&lt;/span&gt;&amp;nbsp;&lt;/a&gt;!&lt;/h1&gt;
+&lt;i&gt;This is the first example of TCPDF library.&lt;/i&gt;
+&lt;p&gt;This text is printed using the &lt;i&gt;writeHTMLCell()&lt;/i&gt; method but you can also use: &lt;i&gt;Multicell(), writeHTML(), Write(), Cell() and Text()&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;Please check the source code documentation and other examples for further information.&lt;/p&gt;
+&lt;p style=&quot;color:#CC0000;&quot;&gt;TO IMPROVE AND EXPAND TCPDF I NEED YOUR SUPPORT, PLEASE &lt;a href=&quot;http://sourceforge.net/donate/index.php?group_id=128076&quot;&gt;MAKE A DONATION!&lt;/a&gt;&lt;/p&gt;
+EOD;
+
+// Print text using writeHTMLCell()
+$pdf-&gt;writeHTMLCell(0, 0, &apos;&apos;, &apos;&apos;, $html, 0, 1, 0, true, &apos;&apos;, true); //使用writeHTMLCell打印文本
+// ---------------------------------------------------------
+// Close and output PDF document
+// This method has several options, check the source code documentation for more information.
+$v = $pdf-&gt;Output(&apos;/Users/apple/Desktop/example_001.pdf&apos;, &apos;F&apos;); //I输出在浏览器上
+
+?&gt;
+</code></pre><ol start="2">
+<li><p>制作证书。仅用于自签，生产时需要向厂商购买。自己给自己签名，没有公信力啦</p>
+<pre><code># 复制 tcpdf的 demo喽
+openssl req -x509 -nodes -days 365000 -newkey rsa:1024 -keyout tcpdf.crt -out tcpdf.crt
+openssl pkcs12 -export -in tcpdf.crt -out tcpdf.p12
+
+# 第二步的密码，在php代码里需要使用的哦
+</code></pre></li>
+<li><p>使用代码，给已存在的 pdf  文件签名</p>
+<pre><code>&lt;?php
+require_once(&quot;vendor/autoload.php&quot;);
+
+use setasign\Fpdi\TcpdfFpdi;
+use setasign\Fpdi\PdfReader;
+
+$pdf = new TcpdfFpdi();
+$pdf-&gt;setPrintHeader(false);
+$pdf-&gt;setPrintFooter(false);
+$pageCount = $pdf-&gt;setSourceFile(&apos;/Users/apple/Desktop/14.pdf&apos;);
+
+// 让旧的 pdf 所有页面载入到新的pdf中
+for($i = 1; $i &lt;= $pageCount; $i++) {
+    $pageId = $pdf-&gt;ImportPage($i);
+    $s = $pdf-&gt;getTemplatesize($pageId);
+    $pdf-&gt;AddPage($s[&apos;orientation&apos;], $s);
+    $pdf-&gt;useImportedPage($pageId);
+}
+</code></pre></li>
+</ol>
+<pre><code>$certificate = &apos;file:///Users/apple/webapps/pdf/tcpdf.crt&apos;;
+$info = array(
+    &apos;Name&apos; =&gt; &apos;臻和&apos;,
+    &apos;Location&apos; =&gt; &apos;Office&apos;,
+    &apos;Reason&apos; =&gt; &apos;臻和出品&apos;,
+    &apos;ContactInfo&apos; =&gt; &apos;http://www.genecast.com.cn&apos;,
+);
+$pdf-&gt;setSignature($certificate, $certificate, &apos;123456&apos;, &apos;&apos;, 2, $info);
+
+
+// 在第一页加签名
+$pdf-&gt;setPage(1);
+
+// *** set signature appearance ***
+// 签名展示的图片，可以用其它内容代替
+$pdf-&gt;Image(&apos;images.png&apos;, 130, 260, 38, 16, &apos;PNG&apos;);
+
+// 真实的签名块，不可见，盖在图片上边
+$pdf-&gt;setSignatureAppearance(130, 260, 38, 16);
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// *** set an empty signature appearance ***
+//$pdf-&gt;addEmptySignatureAppearance(130, 260, 38, 16);
+
+$pdf-&gt;Output(&apos;/Users/apple/Desktop/example_002.pdf&apos;, &apos;F&apos;); //I输出在浏览器上
+</code></pre><ol start="4">
+<li>查看效果喽， 博客刚建立 ，图片整的还不利索，这里不截图了。使用 Adobe Reader 可以看到完整的效果。特意用第三方编辑工具编辑再保存时，阅读器可以提示文档被修改过。</li>
+</ol>
+<p>总结</p>
+<p>这里其实不知道写啥，但感觉要有一个，小时候写作文留下的阴影吗。在编码阶段， composer 安装，并没有这么顺利，最开始没有找对类名。</p>
+<p>另外，说一下FPDI的母公司，<a href="https://www.setasign.com/，商业公司网站的制作，果然是比" target="_blank" rel="noopener">https://www.setasign.com/，商业公司网站的制作，果然是比</a> tcpdf 高出一个档次。</p>
+<p>而且，他们家就有一个产品，PDF-Singer，对 PDF签名。</p>
+<p>如果最后没有找到现在的方案，我肯定会向领导申请购买的。文档，Demo，一应俱全，虽然全是英文。唯一不爽的就是没有购买授权，我没有找着测试类库在哪里。</p>
+<p>好吧，技术探索完成，后续在生产中再有心得，再补上。我是王大力，谢谢您的观看~~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/03/nginx/index/" rel="next" title="Nginx 下载文件不完整">
+                <i class="fa fa-chevron-left"></i> Nginx 下载文件不完整
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/uploads/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description">临渊羡鱼，不如退而结网</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=65918978";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
