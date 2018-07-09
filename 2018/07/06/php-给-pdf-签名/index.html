@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..">
+<meta name="description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
 <meta name="keywords" content="php,pdf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php 给 pdf 签名">
 <meta property="og:url" content="http://uuheart.com/2018/07/06/php-给-pdf-签名/index.html">
 <meta property="og:site_name" content="王大力">
-<meta property="og:description" content="本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..">
+<meta property="og:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-07T08:31:02.000Z">
+<meta property="og:updated_time" content="2018-07-07T08:32:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 给 pdf 签名">
-<meta name="twitter:description" content="本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..">
+<meta name="twitter:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
 
 
 
@@ -350,12 +350,16 @@
       
 
       
-        <p>本篇为Hexo示例文档.  # 这里是摘要部分,写1~2句话,就实现不全显示博文了..</p>
+        <blockquote>
+<p>引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。</p>
+</blockquote>
+<h3 id="需求：使用证书给PDF签名，防止篡改"><a href="#需求：使用证书给PDF签名，防止篡改" class="headerlink" title="需求：使用证书给PDF签名，防止篡改"></a>需求：使用证书给PDF签名，防止篡改</h3><p>签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人修改了内容，则大力的签名即消息。因为别人是没有我的签名的，签名不能被模仿。</p>
+<p>其中主要的技术环节，主要是有大型的机构纷发、核验签名证书。PDF 阅读软件对签名的检查和提示。最重要的是我必须保护好自己的签名，不能让坏人得到。否则，坏人就可以冒充我发布内容，而让我背锅…</p>
 <a id="more"></a>
 <blockquote>
 <p>引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。</p>
 </blockquote>
-<h3 id="需求：使用证书给PDF签名，防止篡改"><a href="#需求：使用证书给PDF签名，防止篡改" class="headerlink" title="需求：使用证书给PDF签名，防止篡改"></a>需求：使用证书给PDF签名，防止篡改</h3><p>签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人修改了内容，则大力的签名即消息。因为别人是没有我的签名的，签名不能被模仿。</p>
+<h3 id="需求：使用证书给PDF签名，防止篡改-1"><a href="#需求：使用证书给PDF签名，防止篡改-1" class="headerlink" title="需求：使用证书给PDF签名，防止篡改"></a>需求：使用证书给PDF签名，防止篡改</h3><p>签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人修改了内容，则大力的签名即消息。因为别人是没有我的签名的，签名不能被模仿。</p>
 <p>其中主要的技术环节，主要是有大型的机构纷发、核验签名证书。PDF 阅读软件对签名的检查和提示。最重要的是我必须保护好自己的签名，不能让坏人得到。否则，坏人就可以冒充我发布内容，而让我背锅…</p>
 <h3 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h3><p>貌似离我最近的案例就是车险的电子保单。有一个公章。在 Macos 下使用预览程序打开 PDF 文件，看不到公章。而使用 Adobe Reader 可以看到公章。点击公章，能看到签名信息，以及最重要的，文档是否被修改过。</p>
 <p>我们的目标大概也是这样。但到目前为止（技术探索阶段）没有搞明白公章是怎么消失的。所以我们的 PDF 文件，暂时目标就是依靠阅读器，去检查是否被修改过，能显示签名信息即可。</p>
@@ -597,7 +601,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求：使用证书给PDF签名，防止篡改"><span class="nav-number">1.</span> <span class="nav-text">需求：使用证书给PDF签名，防止篡改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例："><span class="nav-number">2.</span> <span class="nav-text">案例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法论："><span class="nav-number">3.</span> <span class="nav-text">方法论：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践过程"><span class="nav-number">4.</span> <span class="nav-text">实践过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求：使用证书给PDF签名，防止篡改"><span class="nav-number">1.</span> <span class="nav-text">需求：使用证书给PDF签名，防止篡改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需求：使用证书给PDF签名，防止篡改-1"><span class="nav-number">2.</span> <span class="nav-text">需求：使用证书给PDF签名，防止篡改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例："><span class="nav-number">3.</span> <span class="nav-text">案例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法论："><span class="nav-number">4.</span> <span class="nav-text">方法论：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实践过程"><span class="nav-number">5.</span> <span class="nav-text">实践过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
