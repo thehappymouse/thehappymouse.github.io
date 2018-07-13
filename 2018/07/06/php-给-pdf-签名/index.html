@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王大力">
 <meta property="og:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-13T09:46:58.000Z">
+<meta property="og:updated_time" content="2018-07-13T09:47:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 给 pdf 签名">
 <meta name="twitter:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
@@ -425,7 +425,7 @@
 <h3 id="后记1"><a href="#后记1" class="headerlink" title="后记1"></a>后记1</h3><p>到了生产环节，发现一个很严重的Bug。</p>
 <p>提供PDF签名证书的厂商，产品是通地 UsbKey 发放给客户(也就是我们)，在 windows 下，通过 adobe 的工具，对 pdf 文件进行签名。</p>
 <p>逆天了，法律规定他们不能提供文件形式的软证书。</p>
-<p>或者使用他们提供的在线API，大体意思就是把文件传给厂商，他们帮你签你的名字。</p>
+<p>或者使用他们提供的在线API，大体意思就是把文件传给厂商，他们帮你签你的名字。(这样安全吗？)</p>
 <p>厂商的客服跟我说：这个就像纸质文件，需要盖公章一样，公章也是需要专人保管，一份一份地盖。</p>
 <p>我默默的同意了。</p>
 <h3 id="后记2"><a href="#后记2" class="headerlink" title="后记2"></a>后记2</h3><ol>
