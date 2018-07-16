@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="php," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场">
-<meta name="keywords" content="大力 hexo php go vue">
+<meta name="description" content="某些时候对于执行时间较长的代码块，我们想知道哪块最耗时，耗了多少，可以使用如下方法，做个简单的探测： 完成小目标1234567891011121314151617181920/** * @开始时间 */function proStartTime() &amp;#123;    global $startTime;    $mtime1 = explode(&quot; &quot;, microtime());    $st">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://uuheart.com/2018/06/28/hello-world/index.html">
+<meta property="og:title" content="php 检测代码执行时间">
+<meta property="og:url" content="http://uuheart.com/2018/07/16/php-检测代码执行时间/index.html">
 <meta property="og:site_name" content="王大力">
-<meta property="og:description" content="文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场">
+<meta property="og:description" content="某些时候对于执行时间较长的代码块，我们想知道哪块最耗时，耗了多少，可以使用如下方法，做个简单的探测： 完成小目标1234567891011121314151617181920/** * @开始时间 */function proStartTime() &amp;#123;    global $startTime;    $mtime1 = explode(&quot; &quot;, microtime());    $st">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T09:10:49.000Z">
+<meta property="og:updated_time" content="2018-07-16T10:10:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场">
+<meta name="twitter:title" content="php 检测代码执行时间">
+<meta name="twitter:description" content="某些时候对于执行时间较长的代码块，我们想知道哪块最耗时，耗了多少，可以使用如下方法，做个简单的探测： 完成小目标1234567891011121314151617181920/** * @开始时间 */function proStartTime() &amp;#123;    global $startTime;    $mtime1 = explode(&quot; &quot;, microtime());    $st">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://uuheart.com/2018/06/28/hello-world/"/>
+  <link rel="canonical" href="http://uuheart.com/2018/07/16/php-检测代码执行时间/"/>
 
 
 
 
 
-  <title>Hello World | 王大力</title>
+  <title>php 检测代码执行时间 | 王大力</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/06/28/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/07/16/php-检测代码执行时间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">php 检测代码执行时间</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-28T16:14:21+08:00">
-                2018-06-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-16T11:21:12+08:00">
+                2018-07-16
               </time>
             
 
@@ -321,8 +321,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/28/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/28/hello-world/" itemprop="commentCount"></span>
+                <a href="/2018/07/16/php-检测代码执行时间/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/16/php-检测代码执行时间/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,7 +350,19 @@
       
 
       
-        <p>文房四宝前，你奉笔让我留下墨宝，我接过笔，沉思片刻，挥毫泼墨间，一行 Hello World 华丽登场</p>
+        <p>某些时候对于执行时间较长的代码块，我们想知道哪块最耗时，耗了多少，可以使用如下方法，做个简单的探测：</p>
+<h3 id="完成小目标"><a href="#完成小目标" class="headerlink" title="完成小目标"></a>完成小目标</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @开始时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proStartTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">global</span> $startTime;</span><br><span class="line">    $mtime1 = explode(<span class="string">" "</span>, microtime());</span><br><span class="line">    $startTime = $mtime1[<span class="number">1</span>] + $mtime1[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @检测点时间</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proEndTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">global</span> $startTime,$set;</span><br><span class="line">    $mtime2 = explode(<span class="string">" "</span>, microtime());</span><br><span class="line">    $endtime = $mtime2[<span class="number">1</span>] + $mtime2[<span class="number">0</span>];</span><br><span class="line">    $totaltime = ($endtime - $startTime);</span><br><span class="line">    $totaltime = number_format($totaltime, <span class="number">7</span>);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;br/&gt;process time: "</span>.$totaltime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在需要的地方，插入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 记时开始</span></span><br><span class="line">proStartTime();</span><br><span class="line">...</span><br><span class="line">... <span class="comment">// 你的代码</span></span><br><span class="line">...</span><br><span class="line">proEndTime();</span><br><span class="line">...</span><br><span class="line">... <span class="comment">// 继续检测</span></span><br><span class="line">...</span><br><span class="line">proEndTime();</span><br></pre></td></tr></table></figure>
+<p>以上内容参考博客 <a href="http://www.cnblogs.com/chancy/" target="_blank" rel="noopener">花儿为何那样红</a></p>
+<blockquote>
+<p>ps 本次检测主要是批量修改订单状态很慢，代码级别的优化，效果有限。后来针对数据字段做了索引，效订提升近百倍。</p>
+</blockquote>
+<h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><p>这种检查测方式可以完成工作，但检查后代码还是移除，这些手工操作难免失误。</p>
+<p>且无法从整体上去观察项目的代码运行效率。</p>
+<h3 id="完善：Xdebug"><a href="#完善：Xdebug" class="headerlink" title="完善：Xdebug"></a>完善：Xdebug</h3><p>等改天使用完成补</p>
+<p><a href="https://laravel-news.com/xdebug-phpstorm-valet" target="_blank" rel="noopener">在 PhpStorm 中使用 Xdebug</a></p>
+<p>WebGrind 工具的使用</p>
 
       
     </div>
@@ -366,6 +378,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
 
       
       
@@ -375,15 +393,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/07/06/php-给-pdf-签名/" rel="next" title="php 给 pdf 签名">
+                <i class="fa fa-chevron-left"></i> php 给 pdf 签名
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/开始/" rel="prev" title="开始我的个人博客搭建">
-                开始我的个人博客搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -438,8 +456,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -503,6 +530,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#完成小目标"><span class="nav-number">1.</span> <span class="nav-text">完成小目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不足"><span class="nav-number">2.</span> <span class="nav-text">不足</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完善：Xdebug"><span class="nav-number">3.</span> <span class="nav-text">完善：Xdebug</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
