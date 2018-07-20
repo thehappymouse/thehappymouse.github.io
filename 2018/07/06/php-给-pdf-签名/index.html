@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王大力">
 <meta property="og:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-13T09:47:38.000Z">
+<meta property="og:updated_time" content="2018-07-20T00:50:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 给 pdf 签名">
 <meta name="twitter:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
@@ -432,12 +432,12 @@
 <li><p>找到一家可以提供软证书的公司，<a href="http://www.cfca.com.cn/" target="_blank" rel="noopener">http://www.cfca.com.cn/</a> ,  需要将 pfx 证书转换格式，命令请参考：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in cfca.pfx -out tcpdf.crt -nodes</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>setasign 申请了测试license，下载了代码，由于需要使用 ioncube 而恶心到到了我，放弃。</p>
+<li><p>setasign 的 PDF-Singer 申请了测试license，下载了代码，由于需要使用 ioncube 而恶心到到了我（主要是自动安装失败），放弃。</p>
 </li>
-<li><p>已签名的文档，在 adobe 的阅读器里，显示 “文档证书的有效性未知。无法验证作者。” 那么你需要如下操作： 首选项–&gt;信任管理器-&gt;自动AATL更新–&gt;立即更新。 更新需要一段时间，更新后重新验证即可正常显示签名信息。</p>
-</li>
-<li><p>各种生成，各种猜测，各种阅读器查看效果，心好累，比写代码都累。（最近比较困~~~）</p>
-</li>
+<li>已签名的文档，在 adobe 的阅读器里，显示 “文档证书的有效性未知。无法验证作者。” 那么你需要如下操作： 首选项–&gt;信任管理器-&gt;自动AATL更新–&gt;立即更新。 更新需要一段时间，更新后重新验证即可正常显示签名信息。</li>
+<li>各种生成，各种猜测，各种阅读器查看效果，心好累，比写代码都累。（最近比较困~~~）</li>
+<li>正式上线后，又出现一个问题。一台win7的电脑，无法验证证书。厂家给出的解释是win7部分系统不能自动寻找证书链路，所以无法验证。厂家给出的解决方案是把中级证书和用户证书合并成新的证书，签名时把中级证书签进去，应该就是OK了。 </li>
+<li>但最终采用了 Java 外挂程序的方案 <strong><em> java -jar JSignPdf/JSignPdf.jar </em></strong>，使用 pfx 和密码 直接隐藏式签名。测试大部分机器都能正常。此事告一段落</li>
 </ol>
 
       
