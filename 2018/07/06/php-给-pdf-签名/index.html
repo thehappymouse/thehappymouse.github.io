@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="王大力">
 <meta property="og:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T00:53:25.000Z">
+<meta property="og:updated_time" content="2018-07-20T00:54:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php 给 pdf 签名">
 <meta name="twitter:description" content="引子。说说我们公司吧，以二代测序技术和生物信息学为核心，从事肿瘤个体化精准诊疗和伴随诊断。粗暴一点来讲，卖报告的。报告以PDF文档为载体，纸质文件会加盖公章。  需求：使用证书给PDF签名，防止篡改签名的这东西，在 https 标配化的今天，已经很普遍了。大概意思，比如我（王大力）发布一个文档，我用我的签名文件（即数字证书）给文档加一个签名，让阅读文档的人知道，哦，这个文档是大力的。一旦别人坏人">
@@ -427,7 +427,7 @@
 <p>逆天了，法律规定他们不能提供文件形式的软证书。</p>
 <p>或者使用他们提供的在线API，大体意思就是把文件传给厂商，他们帮你签你的名字。(这样安全吗？)</p>
 <p>厂商的客服跟我说：这个就像纸质文件，需要盖公章一样，公章也是需要专人保管，一份一份地盖。</p>
-<p>我默默的同意了。</p>
+<p>我默默的认同了。</p>
 <h3 id="后记2"><a href="#后记2" class="headerlink" title="后记2"></a>后记2</h3><ol>
 <li><p>找到一家可以提供软证书的公司，<a href="http://www.cfca.com.cn/" target="_blank" rel="noopener">http://www.cfca.com.cn/</a> ,  需要将 pfx 证书转换格式，命令请参考：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in cfca.pfx -out tcpdf.crt -nodes</span><br></pre></td></tr></table></figure>
@@ -440,7 +440,7 @@
 </li>
 <li><p>正式上线后，又出现一个问题。一台win7的电脑，无法验证证书。厂家给出的解释是win7部分系统不能自动寻找证书链路，所以无法验证。厂家给出的解决方案是把中级证书和用户证书合并成新的证书，签名时把中级证书签进去。 但合并证书程序会报错。</p>
 </li>
-<li><p>但最终采用了 Java 外挂程序的方案 <strong><em> java -jar JSignPdf/JSignPdf.jar </em></strong>，使用 pfx 和密码 直接隐藏式签名。测试大部分机器都能正常。此事告一段落</p>
+<li><p>最终采用了 Java 外挂程序的方案 <strong><em> java -jar JSignPdf/JSignPdf.jar </em></strong>，使用 pfx 和密码 直接隐藏式签名。测试大部分机器都能正常。此事告一段落</p>
 </li>
 </ol>
 
