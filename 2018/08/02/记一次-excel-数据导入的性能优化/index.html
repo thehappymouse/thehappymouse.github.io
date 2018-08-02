@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="nginx," />
+  <meta name="keywords" content="-- PHP -- GOLang -- Excel," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。wget http://10.10.20.104:8084/api/h5/reports/file1每一次得到的文件大小都不一样123456#第一次preview               [ &amp;lt;=&amp;gt;        ] 539.26K  --.-KB/s    in 0.002s2018-07">
-<meta name="keywords" content="nginx">
+<meta name="description" content="需求交待 公司业务和肿瘤相关。目前相关的肿瘤类型共35种。 有 Excele 文件，大概5万条数据。有20列左右。 导入数据库。 Excel中A列为肿瘤类型列，其值在35个肿瘤类别中。 A 列值为『通用』值时，需要根据35个肿瘤类型，插入35条记录。 A 列值为『其它』值时，则根据『B\C\D\E\F\G\E』列的值进行组合，查询与组合值相同的肿瘤类别，与肿瘤类型库取差集，根据差集肿瘤类型，填充数">
+<meta name="keywords" content="-- PHP -- GOLang -- Excel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx 下载文件不完整">
-<meta property="og:url" content="http://uuheart.com/2018/07/03/nginx/index/index.html">
+<meta property="og:title" content="记一次 excel 数据导入的性能优化">
+<meta property="og:url" content="http://uuheart.com/2018/08/02/记一次-excel-数据导入的性能优化/index.html">
 <meta property="og:site_name" content="王大力">
-<meta property="og:description" content="通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。wget http://10.10.20.104:8084/api/h5/reports/file1每一次得到的文件大小都不一样123456#第一次preview               [ &amp;lt;=&amp;gt;        ] 539.26K  --.-KB/s    in 0.002s2018-07">
+<meta property="og:description" content="需求交待 公司业务和肿瘤相关。目前相关的肿瘤类型共35种。 有 Excele 文件，大概5万条数据。有20列左右。 导入数据库。 Excel中A列为肿瘤类型列，其值在35个肿瘤类别中。 A 列值为『通用』值时，需要根据35个肿瘤类型，插入35条记录。 A 列值为『其它』值时，则根据『B\C\D\E\F\G\E』列的值进行组合，查询与组合值相同的肿瘤类别，与肿瘤类型库取差集，根据差集肿瘤类型，填充数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-04T09:06:10.000Z">
+<meta property="og:updated_time" content="2018-08-02T03:30:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nginx 下载文件不完整">
-<meta name="twitter:description" content="通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。wget http://10.10.20.104:8084/api/h5/reports/file1每一次得到的文件大小都不一样123456#第一次preview               [ &amp;lt;=&amp;gt;        ] 539.26K  --.-KB/s    in 0.002s2018-07">
+<meta name="twitter:title" content="记一次 excel 数据导入的性能优化">
+<meta name="twitter:description" content="需求交待 公司业务和肿瘤相关。目前相关的肿瘤类型共35种。 有 Excele 文件，大概5万条数据。有20列左右。 导入数据库。 Excel中A列为肿瘤类型列，其值在35个肿瘤类别中。 A 列值为『通用』值时，需要根据35个肿瘤类型，插入35条记录。 A 列值为『其它』值时，则根据『B\C\D\E\F\G\E』列的值进行组合，查询与组合值相同的肿瘤类别，与肿瘤类型库取差集，根据差集肿瘤类型，填充数">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://uuheart.com/2018/07/03/nginx/index/"/>
+  <link rel="canonical" href="http://uuheart.com/2018/08/02/记一次-excel-数据导入的性能优化/"/>
 
 
 
 
 
-  <title>Nginx 下载文件不完整 | 王大力</title>
+  <title>记一次 excel 数据导入的性能优化 | 王大力</title>
   
 
 
@@ -273,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/07/03/nginx/index/">
+    <link itemprop="mainEntityOfPage" href="http://uuheart.com/2018/08/02/记一次-excel-数据导入的性能优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -290,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Nginx 下载文件不完整</h1>
+          <h1 class="post-title" itemprop="name headline">记一次 excel 数据导入的性能优化</h1>
         
 
         <div class="post-meta">
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T11:07:17+08:00">
-                2018-07-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T11:28:55+08:00">
+                2018-08-02
               </time>
             
 
@@ -321,8 +321,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/03/nginx/index/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/03/nginx/index/" itemprop="commentCount"></span>
+                <a href="/2018/08/02/记一次-excel-数据导入的性能优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/08/02/记一次-excel-数据导入的性能优化/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,19 +350,43 @@
       
 
       
-        <p>通过 php readfile 输入一份文件，文件约 5.2MB 使用 wget 命令下载。<br>wget <a href="http://10.10.20.104:8084/api/h5/reports/file1" target="_blank" rel="noopener">http://10.10.20.104:8084/api/h5/reports/file1</a><br>每一次得到的文件大小都不一样<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#第一次</span><br><span class="line">preview               [ &lt;=&gt;        ] 539.26K  --.-KB/s    in 0.002s</span><br><span class="line">2018-07-03 11:12:45 (249 MB/s) - ‘preview’ saved [552206]</span><br><span class="line">#再来一次</span><br><span class="line">preview.1             [ &lt;=&gt;        ] 791.23K  --.-KB/s    in 0.003s</span><br><span class="line">2018-07-03 11:12:46 (281 MB/s) - ‘preview.1’ saved [810222]</span><br></pre></td></tr></table></figure></p>
-<p>发现每次开始下载，然后就结束了，中断了。第一感觉应该是文件长度没有返回，客户端不知道下多少。所以 php 代码补上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(&apos;Content-length:5498687&apos;);</span><br></pre></td></tr></table></figure></p>
-<p>再次执行 wget 下载，发现了有趣的现象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Connecting to 10.10.20.104:8084... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 5498687 (5.2M) [application/pdf]</span><br><span class="line">Saving to: ‘preview.7’</span><br><span class="line"></span><br><span class="line">preview.7                        10%[====&gt;                                                   ] 539.39K  --.-KB/s    in 0.002s</span><br><span class="line"></span><br><span class="line">2018-07-03 11:28:21 (303 MB/s) - Connection closed at byte 552340. Retrying.</span><br><span class="line"></span><br><span class="line">--2018-07-03 11:28:22--  (try: 2)  http://10.10.20.104:8084/api/h5/reports/17007/preview</span><br><span class="line">Connecting to 10.10.20.104:8084... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 5498687 (5.2M) [application/pdf]</span><br><span class="line">Saving to: ‘preview.7’</span><br><span class="line"></span><br><span class="line">preview.7                        32%[=================&gt;                                      ]   1.73M  --.-KB/s    in 0.004s</span><br><span class="line"></span><br><span class="line">2018-07-03 11:28:23 (415 MB/s) - Connection closed at byte 1809684. Retrying.</span><br><span class="line"></span><br><span class="line">--2018-07-03 11:28:25--  (try: 3)  http://10.10.20.104:8084/api/h5/reports/17007/preview</span><br><span class="line">Connecting to 10.10.20.104:8084... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 5498687 (5.2M) [application/pdf]</span><br><span class="line">Saving to: ‘preview.7’</span><br></pre></td></tr></table></figure></p>
-<p>看到 wget 在循环断点下载。文件长度确实生效。但并没有达到预期。</p>
-<p>此时使用 apache 做服务器，下载文件一气呵成，估计还是 nginx 的问题。</p>
-<p>查看 nginx 的 error.log，发现大量的权限错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2018/07/03 11:25:39 [crit] 32747#0: *7 open() &quot;/usr/local/var/run/nginx/fastcgi_temp/4/00/0000000004&quot; failed (13: Permission denied) while reading upstream, client: 10.10.20.104, server: , request: &quot;GET /api/h5/reports/17007/preview HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;10.10.20.104:8084&quot;</span><br><span class="line">2018/07/03 11:25:41 [crit] 32747#0: *9 open() &quot;/usr/local/var/run/nginx/fastcgi_temp/5/00/0000000005&quot; failed (13: Permission denied) while reading upstream, client: 10.10.20.104, server: , request: &quot;GET /api/h5/reports/17007/preview HTTP/1.1&quot;, upstream: &quot;fastcgi://127.0.0.1:9000&quot;, host: &quot;10.10.20.104:8084&quot;</span><br></pre></td></tr></table></figure></p>
-<p>推测是文件比较大，需要缓冲，然后临时文件没有了写入权限产生的，改改式试吧。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R 777 /usr/local/var/run/nginx/fastcgi_temp</span><br></pre></td></tr></table></figure></p>
-<p>果然，解决问题。</p>
-<p>找了相关资料的一段描述：</p>
-<blockquote>
-<p>nginx会使用fastcgi_buffer_size指定的大小的缓冲区用于缓存fastcgi流的内容。当大小超出此大小时会继续用fastcgi_buffers指定的数量和大小申请缓冲区。如果依然超出此大小，会将多出的内容写入临时文件。就导致了该问题。</p>
-</blockquote>
-<p>问题解决了，面上的原因是权限错误，深层次，应该将 php-fpm 和 nginx 用户统一吧。</p>
+        <h3 id="需求交待"><a href="#需求交待" class="headerlink" title="需求交待"></a>需求交待</h3><ol>
+<li>公司业务和肿瘤相关。目前相关的肿瘤类型共35种。</li>
+<li>有 Excele 文件，大概5万条数据。有20列左右。 导入数据库。</li>
+<li>Excel中A列为肿瘤类型列，其值在35个肿瘤类别中。<ol>
+<li>A 列值为『通用』值时，需要根据35个肿瘤类型，插入35条记录。</li>
+<li>A 列值为『其它』值时，则根据『B\C\D\E\F\G\E』列的值进行组合，查询与组合值相同的肿瘤类别，与肿瘤类型库取差集，根据差集肿瘤类型，填充数据，再插入数据库中。</li>
+</ol>
+</li>
+</ol>
+<h3 id="第一回合：从入门到放弃"><a href="#第一回合：从入门到放弃" class="headerlink" title="第一回合：从入门到放弃"></a>第一回合：从入门到放弃</h3><ol>
+<li><p>使用 Laravel 的 Exeel处理库，maatwebsite/excel ，很不幸运，最新版的 3.0 不支持读取，Fuck<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">2. 使用原始的Exel处理库，phpoffice/phpspreadsheet，php最强大的 excel 类库，没有之一。</span><br><span class="line">3. 读取 100 条 xlsx 文件的记录，需要2秒。1K数据，近2分钟。原始的5万条数据，我是没有耐性等它读完。再次Fuck~~~『ps： 这个测试过程很累，因为 Fuck 了的缘故吗』</span><br><span class="line">4. 学习过GoLang，那试试 GoLang的处理效果，使用 ```Luxurioust/excelize``` 5w条数据，大约需要20秒，还不错，非常理想。</span><br><span class="line">5. 但导入数据还有其它业务，毕竟项目组还是PHP项目组，怎么办呢...</span><br><span class="line">6. 试了试，用GoLang把数成导出成json，PHP解析这5w数据的 json ，秒级别解析，效果还可以。</span><br><span class="line">7. 导入原始数据啦，5w多条分批次插入，本机测试3分钟，服务器1分钟完成。还是可以接受的。</span><br><span class="line"></span><br><span class="line">&gt; 第一回合结束，Go 编写 excel2json  程序， win\linux\mac各一个，cnv配置路径</span><br><span class="line"></span><br><span class="line">### 第二回合：xlsx到cvs</span><br><span class="line"></span><br><span class="line">1. 找了一个 GoLang 的 ORM gohouse/gorose，尝试插入，2秒钟完成5w数据插入，Fuck</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p>观察到其它同事处理上百万数据的 excel 文件，后缀都是 csv，那也来试试 csv 好了</p>
+</li>
+<li>PHP和GOLang都内置了 csv的解析器，这一次PHP并没有输的那么难看，5秒内都能解析完成。那还用xlsx干毛线</li>
+<li>csv 的话，需要注意编码，用 Microsoft Excel 导出，貌似是 GBK编码。用 Macos的Number导出，貌似是UTF8。当然，我们需要的是UTF8</li>
+<li>现在爽了，挺快的了。绝对时间了，PHP也能接受（30秒左右），但GO只需要2秒啊~~~</li>
+</ol>
+<h3 id="第三回合：拆数据"><a href="#第三回合：拆数据" class="headerlink" title="第三回合：拆数据"></a>第三回合：拆数据</h3><ol>
+<li>需求中，『通用』的情况，在导入原始数据时，稍加处理，一并插入即可。</li>
+<li>『其它』就比较麻烦，因为需要按值查询，所以最初的想法就是导入后，二次处理。</li>
+<li>大概思路就是一次找出所有其它，再对每一个其它进行一次查询，一次插入。算下来，有10k的其它，一共需要10k+1次查询，10k次插入</li>
+<li>那就干吧，写完代码，跑起来，加了进度条，估算一次本机需要3小时才能完成…,，服务器上跑，也要跑1小时…要疯了</li>
+<li>也想用Go去写这估逻辑，试试速度，但没有写完</li>
+<li>慢，找到慢在哪里，尝试解决吧。<ol>
+<li>批量插入，收益甚微</li>
+<li>增加一列，保留组合查询列的摘要，将直接查摘要。这一次速度有飞的提升</li>
+</ol>
+</li>
+<li>最后的测试数据，服务器上从头执行，100秒内 可以完成。 </li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>从最开始可能需要1到2小时执行的程序，到最后100秒，效果还是符合要求的。总结关键点，欢迎讨论噢：</p>
+<ol>
+<li>excel处理，尽量选择 csv 文件</li>
+<li>数据插入，一定要批量插入</li>
+<li>查询，特别是组合查询，创建好索引，或者特定场合使用冗余列</li>
+</ol>
 
       
     </div>
@@ -380,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/nginx/" rel="tag"># nginx</a>
+            <a href="/tags/PHP-GOLang-Excel/" rel="tag"># -- PHP -- GOLang -- Excel</a>
           
         </div>
       
@@ -393,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/02/hexo-添加https/" rel="next" title="Hexo 添加 https 访问">
-                <i class="fa fa-chevron-left"></i> Hexo 添加 https 访问
+              <a href="/2018/07/16/php-检测代码执行时间/" rel="next" title="php 检测代码执行时间">
+                <i class="fa fa-chevron-left"></i> php 检测代码执行时间
               </a>
             
           </div>
@@ -402,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/06/php-给-pdf-签名/" rel="prev" title="php 给 pdf 签名">
-                php 给 pdf 签名 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -460,8 +480,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -525,6 +554,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求交待"><span class="nav-number">1.</span> <span class="nav-text">需求交待</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一回合：从入门到放弃"><span class="nav-number">2.</span> <span class="nav-text">第一回合：从入门到放弃</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三回合：拆数据"><span class="nav-number">3.</span> <span class="nav-text">第三回合：拆数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
